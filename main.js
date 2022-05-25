@@ -46,6 +46,7 @@ function init(){
   scene.add(light);
   // addLight(0.996, 0.7, 0.5, 0, 0 , -1000);
   // addLight()
+  //ye
 
   addLight(0.8472222, 0.9, 0.5, 0, 0 , -4000);
 
