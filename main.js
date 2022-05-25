@@ -1,4 +1,3 @@
-import './style.css'
 import * as THREE from './build/three.module.js';
 import {FlyControls} from './jsm/controls/FlyControls.js';
 // import { Clock } from './build/three.module';
