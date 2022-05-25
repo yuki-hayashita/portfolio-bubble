@@ -1,7 +1,7 @@
 import './style.css'
-import * as THREE from '/three';
+import * as THREE from 'three';
 import {FlyControls} from './jsm/controls/FlyControls.js';
-import { Clock } from './build/three.module';
+// import { Clock } from './build/three.module';
 import { Lensflare, LensflareElement} from './jsm/objects/Lensflare.js'
 // import { random } from 'gsap/all';
 // import './FlyControls';
