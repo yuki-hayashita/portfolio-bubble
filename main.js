@@ -167,5 +167,4 @@ btn.addEventListener('click', event => {
       generateCrystal(element);
     }
   });
-  up = 100;
 });
