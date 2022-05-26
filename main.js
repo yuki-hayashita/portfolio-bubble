@@ -144,23 +144,6 @@ function tick() {
     }
   });
 
-  
-
-  // if(intersects.length > 0){
-  //   // ぶつかったオブジェクトに対してなんかする
-  //   intersects.forEach(element => {
-  //     if (element.object.geometry.type == 'SphereGeometry') {
-  //       // scene.remove(element.object);
-  //       element.object.material.flatShading = true;
-  //       element.object.geometry.parameters.widthSegments = 10;
-  //       element.object.geometry.parameters.heightSegments = 10;
-  //       console.log(element.object);
-  //     }
-      
-  //     // element.dispose();
-  //   });
-  // }
-
   // レンダリング
   renderer.render(scene, camera);
   requestAnimationFrame(tick);
