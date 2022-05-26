@@ -1,6 +1,5 @@
 import * as THREE from './build/three.module.js';
 import {FlyControls} from './jsm/controls/FlyControls.js';
-// import { Clock } from './build/three.module';
 
 let camera, scene, renderer, controls;
 let index = 0;
@@ -13,6 +12,7 @@ function init(){
   //camera
   camera = new THREE.PerspectiveCamera(40, innerWidth/innerHeight, 1,18000);
   camera.position.z = 5000;
+  // camera.lookAt(new THREE.Vector3(0, 1, 4999));
 
   //scene
   scene = new THREE.Scene();
@@ -98,23 +98,6 @@ addEventListener( 'mousemove', (event) => {
   mouse.y = - (event.clientY / innerHeight) *  2 + 1;;
 })
 
-
-
-// マウスを動かしたときのイベント
-// function handleMouseMove(event) {
-//   const element = event.currentTarget;
-//   // canvas要素上のXY座標
-//   const x = event.clientX - element.offsetLeft;
-//   const y = event.clientY - element.offsetTop;
-//   // canvas要素の幅・高さ
-//   const w = element.offsetWidth;
-//   const h = element.offsetHeight;
-
-//   // -1〜+1の範囲で現在のマウス座標を登録する
-//   mouse.x = ( x / w ) * 2 - 1;
-//   mouse.y = -( y / h ) * 2 + 1;
-// }
-
 // レイキャストを作成
 const raycaster = new THREE.Raycaster();
 
@@ -147,33 +130,6 @@ function tick() {
   // レンダリング
   renderer.render(scene, camera);
   requestAnimationFrame(tick);
-}
-
-function moveUp(element){
-  index++;
-  if (index % 20 == 0) {
-    scene.remove(element);
-    const size = element.geometry.parameters.radius;
-    const xyz = element.position;
-
-    console.log(clock.elapsedTime);
-
-    const material = new THREE.MeshPhongMaterial({
-                      color: 0xFFFFFF,
-                      specular: 0xFFFFFF,
-                      flatShading: THREE.FlatShading,
-                      // shininess: 100,
-                      // wireframe: true
-                    });
-
-    const geometry = new THREE.SphereGeometry( size, 50, 50 );
-    const mesh = new THREE.Mesh(geometry, material);
-    mesh.position.x = xyz.x;
-    mesh.position.y = xyz.y + 1;
-    mesh.position.z = xyz.z;
-
-    scene.add(mesh);
-  }
 }
 
 function generateCrystal(element){
