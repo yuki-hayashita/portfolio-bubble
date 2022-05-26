@@ -3,6 +3,7 @@ import {FlyControls} from './jsm/controls/FlyControls.js';
 
 let camera, scene, renderer, controls;
 let index = 0;
+let up = 1;
 
 const clock = new THREE.Clock();
 
@@ -116,7 +117,7 @@ function tick() {
     if (element.type == 'Mesh') {
       
       // console.log(element.position);
-      element.position.y += 1;
+      element.position.y += up;
       element.position.needsUpdate = true;
 
       if(intersects.length > 0){
@@ -158,3 +159,13 @@ function generateCrystal(element){
     scene.add(mesh);
   }
 }
+
+let btn = document.getElementById('btn');
+btn.addEventListener('click', event => {
+  scene.children.forEach(element => {
+    if (element.type == 'Mesh') {
+      generateCrystal(element);
+    }
+  });
+  up = 100;
+});
