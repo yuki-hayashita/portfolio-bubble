@@ -68,7 +68,7 @@ function init(){
 
   //flycontrols
   controls = new FlyControls(camera, renderer.domElement);
-  controls.movementSpeed = 8000;
+  controls.movementSpeed = 2000;
   controls.rollSpeed = Math.PI/60;
 
   console.log(scene.children[1499]);
