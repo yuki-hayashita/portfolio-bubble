@@ -13,6 +13,8 @@ function init(){
   //camera
   camera = new THREE.PerspectiveCamera(40, innerWidth/innerHeight, 1,18000);
   camera.position.z = 5000;
+  // camera = new THREE.PerspectiveCamera(40, innerWidth/innerHeight, 1,40000);
+  // camera.position.z = 40000;
   // camera.lookAt(new THREE.Vector3(0, 1, 4999));
 
   //scene
@@ -70,7 +72,7 @@ function init(){
   //flycontrols
   controls = new FlyControls(camera, renderer.domElement);
   controls.movementSpeed = 2000;
-  controls.rollSpeed = Math.PI/60;
+  controls.rollSpeed = Math.PI/240;
 
   console.log(scene.children[1499]);
 
@@ -118,6 +120,7 @@ function tick() {
       
       // console.log(element.position);
       element.position.y += up;
+      if (element.position.y >= 8000) element.position.y -= 16000;
       element.position.needsUpdate = true;
 
       if(intersects.length > 0){
@@ -160,11 +163,11 @@ function generateCrystal(element){
   }
 }
 
-let btn = document.getElementById('btn');
-btn.addEventListener('click', event => {
-  scene.children.forEach(element => {
-    if (element.type == 'Mesh') {
-      generateCrystal(element);
-    }
-  });
-});
+// let btn = document.getElementById('btn');
+// btn.addEventListener('click', event => {
+//   scene.children.forEach(element => {
+//     if (element.type == 'Mesh') {
+//       generateCrystal(element);
+//     }
+//   });
+// });
